@@ -1,0 +1,104 @@
+<%- include('partials/header.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Entry Form</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Form container */
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form title */
+        .form-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Form groups */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        /* Label styles */
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Input and textarea styles */
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Button styles */
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Book Entry Form</h2>
+        <form action="/new" method="POST">
+            <div class="form-group">
+                <label for="book-name">Book Name:</label>
+                <input type="text" id="book-name" name="book-name" required>
+            </div>
+            <div class="form-group">
+                <label for="isbn-code">ISBN CODE:</label>
+                <input type="text" id="ISBN-CODE" name="isbn-code" required>
+                </div>
+            <div class="form-group">
+                <label for="book-rating">Book Rating:</label>
+                <input type="number" id="book-rating" name="book-rating" min="1" max="5" required>
+            </div>
+            <div class="form-group">
+                <label for="book-notes">Notes:</label>
+                <textarea id="book-notes" name="book-notes" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Add Book</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+<%- include('partials/footer.ejs') %>

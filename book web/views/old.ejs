@@ -1,0 +1,84 @@
+<%- include('partials/header.ejs') %>
+<!-- views/books.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .book-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .book {
+            display: flex;
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .book:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .book img {
+            width: 120px;
+            height: 180px;
+            margin-right: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .book-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+        .book h2 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .book p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .book p strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="book-container">
+        <% if (books && books.length !== 0) { %>
+            <% books.forEach(book => { %>
+                <div class="book">
+                    <img src="<%= book.cover_image %>" alt="Book Cover">
+                    <div class="book-info">
+                        <h2><%= book.book_name %></h2>
+                        <p><strong>Rating:</strong> <%= book.ratings %></p>
+                        <p><strong>Notes:</strong> <%= book.notes %></p>
+                        <a href="/delete<%= book.book_name %>" class="btn btn-primary delete-book">DELETE BOOK</a>
+                    </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No books found.</p>
+        <% } %>
+    </div>
+</body>
+</html>
+<%- include('partials/footer.ejs') %>

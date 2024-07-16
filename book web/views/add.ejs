@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs") %>
+<div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add New Book</h5>
+          <p class="card-text">Add a new book in your e-notes</p>
+          <a href="/new" class="btn btn-primary">Add</a> 
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">View Old Book</h5>
+          <p class="card-text">View your saved e-notes </p>
+          <a href="/old" class="btn btn-primary">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logout">
+  <a href="/logout" class="btn btn-primary">LOGOUT</a>
+  </div>
+<%- include("partials/footer.ejs") %>
